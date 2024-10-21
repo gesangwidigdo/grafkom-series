@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belajar WebGL</title>
+    <script type="text/javascript" src="main.js"></script>
+    <script type="text/javascript" src="data.js"></script>
+    <script type="text/javascript" src="gl-matrix-min.js"></script>
+    <script type="text/javascript" src="IOHandler.js"></script>
+</head>
+<body onload="main()">
+    <canvas id="myCanvas" style="border: 1px solid black;" width="750px" height="650px">
+
+    </canvas>
+
+    <script id="vertexShaderCode" type="notjs">
+        attribute vec3 aPosition;
+        attribute vec3 aColor;
+        uniform mat4 uMatrix;
+        uniform mat4 uProj;
+        uniform mat4 uView;
+        uniform mat4 uModel;
+        varying vec3 vColor;
+        void main(){
+            vColor = aColor;
+            gl_Position = uProj*uView*uModel*vec4(aPosition, 1.0);
+        }
+    </script>
+</body>
+</html>
