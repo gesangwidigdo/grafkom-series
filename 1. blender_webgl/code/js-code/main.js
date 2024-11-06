@@ -66,7 +66,7 @@ function main(){
 
   glMatrix.mat4.lookAt(viewMatrix,
       [0.0, 0.0, .5], //posisi kamera
-      [0.0, 0.0, -2.0], //kemana kamera menghadap
+      [0.0, 0.0, 0.0], //kemana kamera menghadap
       [0.0, 1.0, 0.0] //kemana arah atas kamera
   );
 
