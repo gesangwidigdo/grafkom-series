@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Belajar WebGL</title>
+    <title>WebGL - Tempat sampah</title>
     <script type="text/javascript" src="webgl-utils.js"></script>
     <script type="text/javascript" src="m4.js"></script>
     <script type="module" src="main.js"></script>
@@ -13,24 +13,114 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(45deg, #080ec0, #07c085);
+        }
+
+        .container {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         header {
+            margin: 1rem 0;
+            font-size: 1rem;
             text-align: center;
-            margin: 20px 0;
+            color: rgb(255, 255, 255);
+        }
+
+        header h1 {
+            text-transform: uppercase;
+            font-size: 2.3rem;
+        }
+
+        header p {
+            margin: 1rem 0;
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
+
+        .content {
+            border: 5px solid black;
+            display: flex;
+            justify-content: center;
+            margin: 0 auto;
+            padding: 2rem;
+            background-color: #dbd7d7;
+            border-radius: 50px;
+            box-shadow: 0 0 10px 5px #292323;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            line-height: 3rem;
+            margin-left: 5rem;
+        }
+
+        .input {
+            display: flex;
+            align-items: center;
+        }
+
+        .input label {
+            margin: 0 1rem;
         }
 
         canvas {
-            margin: 0 auto;
-            display: block;
+            border: 5px solid black;
+            border-radius: 30px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="color"] {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            width: 25px;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            }
+        input[type="color"]::-webkit-color-swatch {
+            border-radius: 5px;
+            border: 2px solid black;
+        }
+        input[type="color"]::-moz-color-swatch {
+            border-radius: 5px;
+            border: 2px solid black;
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Tugas WebGL Grafika Komputer (C)</h1>
-        <p>Muhammad Gesang Ridho Widigdo - 5025221216</p>
-    </header>
-    <canvas id="myCanvas" style="border: 1px solid black;" width="750px" height="650px"></canvas>
+    <div class="container">
+        <header>
+            <h1>Tugas WebGL Grafika Komputer (E)</h1>
+            <p>Muhammad Gesang Ridho Widigdo - 5025221216</p>
+        </header>
+        <div class="content">
+            <canvas id="myCanvas" width="500" height="500"></canvas>
+            <div class="input-group">
+                <div class="input">
+                    <label for="bg-color">Adjust Background Color</label> <input type="color" name="bg-color" id="bg-color" value="#ffffff">
+                </div>
+                <div class="input">
+                    <label for="light-color">Adjust Light Color</label> <input type="color" name="light-color" id="light-color" value="#040101">
+                </div>
+                <div class="input">
+                    <label for="light-intensity">Light Intensity</label> <input type="range" name="light-intensity" id="light-intensity" min="0" max="1" step="0.1" value="1">
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

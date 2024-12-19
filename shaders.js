@@ -34,8 +34,10 @@ export const fs = `
   uniform vec3 specular;
   uniform float shininess;
   uniform float opacity;
+  uniform vec3 u_lightColor;
   uniform vec3 u_lightDirection;
   uniform vec3 u_ambientLight;
+  uniform float u_lightIntensity;
 
   void main () {
     vec3 normal = normalize(v_normal);
@@ -52,8 +54,8 @@ export const fs = `
     gl_FragColor = vec4(
         emissive +
         ambient * u_ambientLight +
-        effectiveDiffuse * fakeLight +
-        specular * pow(specularLight, shininess),
+        effectiveDiffuse * fakeLight * u_lightColor * u_lightIntensity +
+        specular * pow(specularLight, shininess) * u_lightIntensity,
         effectiveOpacity);
   }
 `;
